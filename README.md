@@ -50,9 +50,21 @@ npm run smoke    # production HTTP checks after build
 
 Restart the app and rail after replacing the adapter. Always use `localhost`, consistently, for the browser and the configured origin. Production alternative: `npm run build && npm start`. Optional local containers: `docker compose up --build` **after** exporting the real adapter; rebuild whenever it changes.
 
-## Demo video
+## Demo Video
 
-**Recording pending — supplied by the team before submission.** Place the two-minute video at `demo/demo.mp4` and replace this sentence with `[Watch the demo](demo/demo.mp4)`. [Shot list and narration](docs/DEMO_SCRIPT_VI.md).
+Watch our **Dual-Control Expense Desk** demo, built for the Tide Unlocked Hackathon 2026.
+
+[**▶ Watch Demo Video (MP4)**](demo/demo.mp4)
+
+The video demonstrates:
+- Role-based access control and unauthorized action denial.
+- Independent Finance and Compliance approvals.
+- Protected mock payment execution.
+- Two-administrator governance simulation.
+
+**Integration Mode:** TideCloak Plan C — Simulated Security Controls.
+
+[Demo Script & Narration](docs/DEMO_SCRIPT_VI.md)
 
 ## What is included
 
