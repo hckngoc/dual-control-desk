@@ -1,0 +1,40 @@
+{
+  "name": "dual-control-desk",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack --hostname 127.0.0.1",
+    "build": "next build --webpack",
+    "start": "next start",
+    "init": "bash scripts/init-tidecloak.sh",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.mts",
+    "typecheck": "node scripts/prepare-config.mjs && next typegen && tsc --noEmit",
+    "rail": "node --import tsx rail/server.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "predev": "node scripts/prepare-config.mjs",
+    "prebuild": "node scripts/prepare-config.mjs",
+    "export:adapter": "bash scripts/export-adapter.sh",
+    "publish:github": "bash scripts/publish-github.sh",
+    "preflight": "node scripts/preflight.mjs",
+    "format": "prettier --write src rail tests docs README.md package.json tsconfig.json next.config.ts",
+    "invite": "bash scripts/invite-user.sh",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@tidecloak/nextjs": "0.14.17",
+    "jose": "^6.0.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

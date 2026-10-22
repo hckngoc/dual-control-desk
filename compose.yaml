@@ -1,0 +1,24 @@
+# Configure a REAL adapter (npm run init or npm run export:adapter) BEFORE building.
+# TideCloak itself is bootstrapped separately and accessed by the browser on localhost:8080.
+services:
+  desk:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      APP_ORIGIN: http://localhost:3000
+      RAIL_URL: http://rail:4100
+      DESK_DB: /state/desk.sqlite
+      DPOP_DB: /state/dpop.sqlite
+    volumes: ["desk-state:/state"]
+    depends_on: [rail]
+  rail:
+    build: .
+    command: ["npm", "run", "rail"]
+    environment:
+      APP_ORIGIN: http://localhost:3000
+      RAIL_HOST: 0.0.0.0
+      RAIL_DB: /state/rail.sqlite
+    volumes: ["rail-state:/state"]
+volumes:
+  desk-state:
+  rail-state:
